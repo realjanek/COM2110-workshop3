@@ -1,0 +1,135 @@
+/* Import a font to use for the headers from google fonts 
+       https://fonts.google.com/
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Montserrat:wght@100&display=swap');
+body {
+       font-family:Georgia, 'Times New Roman', Times, serif;
+       font-size: 13pt;
+       line-height: 2em;
+       margin: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*  The .page-wrapper class contains the three main blocks, we 
+    set it up as a grid with two columns.  
+    The background colour matches that of the header 
+    because the header will just be in the first column 
+    */
+.page-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+/* The intro contains the header and the first paragraphs of text.  
+Put the .intro in the first and second columns, first row.
+*/
+.intro {
+    background-color: azure;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* Header gets a background colour - the design has a background image so could 
+try that too. 
+We position the header absolute so that we can have it span the full width of the
+page - this puts it outside he grid.
+*/
+header {
+    box-sizing: border-box;  /* so that padding doesn't expand the header */
+    background-color:chocolate;
+    padding-left: 50px;
+    padding-top: 40px;
+    margin: 0;
+
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+} 
+
+/* place the H1 and H2 inside the header block. Use padding and margin to 
+   space them out about right.
+   I got a logo image from pixeabay (searching for circle and finding public domain images)
+   positioned here as a background image and scaled to try to make it work.
+   Note the tricks with padding on the bottom to make the background image go below
+   the text and a negative margin on the bottom to allow the h2 to come closer.
+*/
+header h1 { 
+    background-image: url(https://cdn.pixabay.com/photo/2016/08/25/07/30/orange-1618917_960_720.png);
+    background-size: 80px;
+    background-repeat: no-repeat;
+    padding-left: 100px;
+    padding-bottom: 100px;
+    margin-bottom: -80px;
+    margin-top: 50px;    
+    font-family: 'Hubballi', cursive;
+    font-variant: small-caps;
+    font-size: 50pt;
+}
+header h2 {
+    font-style:italic;
+    margin: 0;
+    padding-bottom: 50px;
+    padding-left: 100px;
+    font-family: 'Hubballi', cursive;
+
+    
+}
+
+/* 
+   */
+.intro {
+    margin-top: 200px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* The main block is the first column, second row */
+.main {
+    background-color: #26d7b9e3;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.main div {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* The sidebar is the second column and spans two rows
+   since it would overlap the header we add 200px margin to 
+   pull it down.
+*/
+.sidebar {
+    background-color: aquamarine;
+    grid-column: 2;
+    grid-row: 1 / 3 ;
+    margin-top: 200px;   /* same as the height of the header */
+    padding-left: 50px;
+}
+
+/* This paragraph is set across the page in the original, would need some
+more absolute positioning I think ... */
+p[role=contentinfo] {
+    background-color: chocolate;
+    padding: 50px;
+    text-align: center;
+    font-size: larger;
+    font-style: italic;
+}
+
+/* Lay out the footer using flexbox, space the links centered with a gap */
+footer {
+    background-color: coral;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 50px;
+    padding-top: 50px;
+    height: 100px;
+}
